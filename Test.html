@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <h2>Sonline Quiz</h2>
+      </div>
+      <div class="main">
+        <div class="final">
+          <h3>You answered all of the questions!</h3>
+          <p>Score:</p>
+          <p class="score"></p>
+          <h4>Want to try it again?</h4>
+          <button id="again" class="submit">Again</button>
+        </div>
+        <div class="quiz">
+          <div class="count">
+            <p class="current">0</p>
+            <p style="margin-left: 40px">/</p>
+            <p class="total"></p>
+          </div>
+          <h3 id="question"></h3>
+          <label id="a1" class="container">
+            <input type="radio" checked="checked" name="radio" />
+            <span class="checkmark"></span>
+          </label>
+          <label id="a2" class="container">
+            <input type="radio" name="radio" />
+            <span class="checkmark"></span>
+          </label>
+          <label id="a3" class="container">
+            <input type="radio" name="radio" />
+            <span class="checkmark"></span>
+          </label>
+          <label id="a4" class="container">
+            <input type="radio" name="radio" />
+            <span class="checkmark"></span>
+          </label>
+          <button id="next" class="submit">Submit</button>
+        </div>
+        <div class="settings">
+          <h3 style="text-align: center">Set up your Quiz!</h3>
+          <label for="category">Category</label>
+          <select name="category" id="category">
+            <option value="9">General Knowledge</option>
+            <option value="27">Agricultural science</option>
+            <option value="15"><a href="timerssumit.html">Biology</a></option>
+            <option value="23">Computer studies</option>
+            <option value="21">Sports</option>
+          </select>
+         
+          <div class="mt30">
+            <label for="questions">Number of questions</label>
+            <input
+              name="questions"
+              id="questions"
+              type="text"
+              pattern="[0-9]*"
+            />
+          </div>
+         <a href="timerssumit.html";><button id="start" class="submit">Start</button></a>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
+
+
+<style>
+:root {
+  --primary-color: #5D737E;
+  --secondary-color: #D6F8D6;
+  --tertiary-color: #7FC6A4;
+  --quaternary-color: #55505C;
+  --hover-color: #4e616b;
+  --shadow-color:rgba(57, 127, 93, 0.4);
+  --font-style: 'Questrial';
+}
+body {
+  font-family: var(--font-style), 'Ranchers', cursive;
+  background-color: var(--secondary-color);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  font-size: 3.5rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+.mt30 {
+  margin-top: 30px;
+}
+.header {
+  padding: 15px;
+}
+.main {
+  display: flex;
+  justify-content: center;
+justify-content: center;
+}
+.settings {
+  z-index: 1;
+}
+.final {
+  visibility: hidden;
+  z-index: 2;
+}
+.final p {
+  font-size: 30px;
+  text-align: center;
+}
+.final h4 {
+  font-size: 33px;
+  text-align: center;
+}
+.quiz  {
+  visibility: hidden;
+  z-index: 0;
+}
+#questions {
+  font-size: 20px;
+  font-family: var(--font-style), 'Ranchers', cursive;
+  font-weight: 600;
+  line-height: 1.3;
+  color: white;
+  background-color: var(--primary-color);
+  appearance: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 30px;
+  outline: none;
+  text-align: center;
+  width: 120px;
+}
+.settings select {
+  font-size: 20px;
+  font-family: var(--font-style), 'Ranchers', cursive;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  color: white;
+  background-color: var(--primary-color);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 20px;
+  outline: none;
+  text-align: center;
+  
+  text-align: center;
+}
+.settings select::-ms-expand {
+  display: none;
+}
+.settings select:hover {
+  border-color: var(--hover-color);
+}
+.settings select:focus {
+  border-color: var(--hover-color);
+}
+.settings select option {
+  /* font-weight: bolder; */
+  font-family: var(--font-style), 'Ranchers', sans-serif;
+}
+.settings label {
+  font-size: 25px;
+  margin-right: 16px;
+}
+.quiz, .settings, .final {
+  position: absolute;
+  padding: 0px 35px 35px 35px;
+  max-width: 560px;
+  background-color: var(--tertiary-color);
+  border-radius: 7px;
+  -webkit-box-shadow: 10px 10px 3px -4px var(--shadow-color);
+  -moz-box-shadow: 10px 10px 3px -4px var(--shadow-color);
+  box-shadow: 10px 10px 5px -4px var(--shadow-color);
+}
+h3 {
+  display: block;
+  width: 550px;
+  font-size: 35px;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+.submit {
+  width: 100%;
+  color: white;
+  background-color: var(--primary-color);
+  font-family: var(--font-style), 'Ranchers', cursive;
+  outline: none;
+  border: none;
+  height: 50px;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  border-radius: 5px;
+  letter-spacing: 2px;
+}
+.submit:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+  color: #FAF33E;
+  /* The container */
+.count {
+  display: block;
+  left: 75%;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
+.count p {
+  position: absolute;
+  font-size: 35px;
+  
+}
+.total {
+  margin-left: 50px;
+}
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 30%;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #FAF33E;
+}
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--quaternary-color);
+}
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+</style>
